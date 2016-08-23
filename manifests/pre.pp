@@ -12,6 +12,13 @@ class oxphys_fw::pre {
    source => '163.1.136.0/24' ,
    chain => INPUT,
   }->
+  firewallchain { 'manualoverrides:filter:IPv4':
+    ensure  => present,
+  }->
+  firewall { '001 manual override firewall INPUT CHAIN rules placed here will not be managed by puppet':
+    chain   => 'INPUT',
+    jump    => 'manualoverrides',
+  }->
   firewallchain { 'puppet:filter:IPv4':
     ensure  => present,
   }->
