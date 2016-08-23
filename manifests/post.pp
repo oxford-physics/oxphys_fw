@@ -3,6 +3,6 @@ class oxphys_fw::post {
     proto   => 'all',
     action  => 'drop',
     before  => undef,
-    
+    chain => 'puppet',
   }
 }

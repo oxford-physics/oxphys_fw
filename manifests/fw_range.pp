@@ -4,9 +4,10 @@ define oxphys_fw::fw_range ($ip, $port, $proto='tcp') {
    proto    => $proto,
    state    => ['NEW'],
    action   => 'accept',
-   port     => $port,
+   dport     => $port,
    source   => $ip,
-   require  => Class['oxphys_fw'] 
+   require  => Class['oxphys_fw'] ,
+   chain => puppet,
  } 
 
 }
