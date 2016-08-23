@@ -14,6 +14,7 @@ class oxphys_fw::pre {
   }->
   firewallchain { 'manualoverrides:filter:IPv4':
     ensure  => present,
+    purge   => false,
   }->
   firewall { '001 manual override firewall INPUT CHAIN rules placed here will not be managed by puppet':
     chain   => 'INPUT',
@@ -21,6 +22,7 @@ class oxphys_fw::pre {
   }->
   firewallchain { 'puppet:filter:IPv4':
     ensure  => present,
+    purge => true,
   }->
   firewall { '002 puppet firewall CHAIN':
     chain   => 'INPUT',

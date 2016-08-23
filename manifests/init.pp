@@ -1,6 +1,6 @@
 class oxphys_fw { 
   resources { "firewall":
-  purge => true
+  purge => false
   }
 
   
